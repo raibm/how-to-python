@@ -7,8 +7,12 @@ total_trys = 3
 
 for round in range(1, total_trys + 1):
     print("Try number {} of {}".format(round, total_trys))
-    user_number = int(input("Try a number: "))
+    user_number = int(input("Input a number between 1 and 100: "))
     print("\n")
+
+    if (user_number < 1 or user_number > 100):
+        print("Wrong value, value must be greater or equal than 1 and smaller or equal than 100.")
+        continue
 
     got_it = secret_number == user_number;
     is_smaller_than = user_number < secret_number;
