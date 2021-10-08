@@ -7,7 +7,7 @@ total_trys = 3
 round = 1
 
 while (round <= total_trys):
-    print("Try number", round, "of", total_trys)
+    print("Try number {} of {}".format(round, total_trys))
     user_number = int(input("Try a number: "))
     print("\n")
 
@@ -16,6 +16,7 @@ while (round <= total_trys):
 
     if (got_it):
         print("U got it!")
+        round += total_trys
     elif (is_smaller_than):
         print("Bad choise, your try is small than secret number.")
     else:
