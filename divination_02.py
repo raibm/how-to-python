@@ -1,8 +1,11 @@
+from random import random
+
 print("*********************************")
-print("Bem vindo ao jogo de Adivinhação!")
+print("Welcome to the divination game!")
 print("*********************************")
 
-secret_number = 42
+secret_number = int(random() * 100)
+"Também é possível usar um round, para arredondar números quebrados round(valor)"
 total_trys = 3
 
 for round in range(1, total_trys + 1):
