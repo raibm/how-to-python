@@ -6,7 +6,27 @@ print("*********************************")
 
 secret_number = random.randrange(1, 101)
 "Também é possível usar um round, para arredondar números quebrados round(int(random() * 100))"
-total_trys = 3
+total_trys = 0
+difficulty_selected = False
+
+print("Select difficulty: ")
+while (difficulty_selected == False):
+    difficulty = int(input("(1) Easy (2) Normal (3) Hard"))
+    if (difficulty == 1):
+        total_trys = 20
+        print("Difficulty selected: Easy")
+        break
+    elif (difficulty == 2):
+        total_trys = 10
+        print("Difficulty selected: Normal")
+        break
+    elif(difficulty == 3):
+        total_trys = 5
+        print("Difficulty selected: Hard")
+        break
+    else:
+        print("Wrong input, try another option.")
+
 
 for round in range(1, total_trys + 1):
     print("Try number {} of {}".format(round, total_trys))
