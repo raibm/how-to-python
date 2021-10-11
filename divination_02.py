@@ -8,6 +8,10 @@ secret_number = random.randrange(1, 101)
 "Também é possível usar um round, para arredondar números quebrados round(int(random() * 100))"
 total_trys = 0
 difficulty_selected = False
+difficulty = 0
+total_score = 1000
+current_score = 1000
+lost_score = 0
 
 print("Select difficulty: ")
 while (difficulty_selected == False):
@@ -41,11 +45,15 @@ for round in range(1, total_trys + 1):
     is_smaller_than = user_number < secret_number;
 
     if (got_it):
-        print("U got it!")
+        print("Congratulatios! u got it, the right number is {}".format(secret_number))
         break
     elif (is_smaller_than):
         print("Bad choise, your try is small than secret number.")
+        lost_score = abs(secret_number - user_number)
+        current_score = current_score - lost_score
     else:
         print("Ops, your number is so big, try another number...")
+        lost_score = abs(user_number - secret_number)
+        current_score = current_score - lost_score
     round += 1
-print("Bye!")
+print("Bye! \nTotal score: {} of {}".format(current_score, total_score))
