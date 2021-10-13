@@ -58,3 +58,7 @@ def play():
             current_score = current_score - lost_score
         round += 1
     print("Bye! \nTotal score: {} of {}".format(current_score, total_score))
+
+
+if (__name__ == "__main__"):
+    play()
