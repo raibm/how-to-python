@@ -3,7 +3,12 @@ def play():
     print("Welcome to the gibble game!")
     print("*********************************")
 
-    print("We are working on that.")
+    secret_word = "banana"
+    got_it = False
+    hanged = False
+
+    while(not got_it and not hanged):
+        print("Playing...")
 
 
 if (__name__ == "__main__"):

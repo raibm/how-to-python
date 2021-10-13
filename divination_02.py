@@ -7,7 +7,7 @@ def play():
     print("*********************************")
 
     secret_number = random.randrange(1, 101)
-    "Também é possível usar um round, para arredondar números quebrados round(int(random() * 100))"
+    #"Também é possível usar um round, para arredondar números quebrados round(int(random() * 100))"
     total_trys = 0
     difficulty_selected = False
     difficulty = 0

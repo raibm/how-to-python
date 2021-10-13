@@ -1,5 +1,5 @@
 import divination_02
-import gibble
+import hang
 
 
 def choose_game():
@@ -11,7 +11,7 @@ def choose_game():
 
     if (game == 1):
         print("Playing Gibble game.")
-        gibble.play()
+        hang.play()
     elif (game == 2):
         print("Playing Divination 2.")
         divination_02.play()
