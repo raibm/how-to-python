@@ -8,7 +8,12 @@ def play():
     hanged = False
 
     while(not got_it and not hanged):
-        print("Playing...")
+        guess = input("Try a letter")
+
+        for letter in secret_word:
+            guess = guess.lower()
+            if(letter == guess):
+                print("Got it!")
 
 
 if (__name__ == "__main__"):
