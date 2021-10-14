@@ -11,8 +11,7 @@ def play():
         guess = input("Try a letter")
 
         for letter in secret_word:
-            guess = guess.lower()
-            if(letter == guess):
+            if(guess.lower() == letter.lower()):
                 print("Got it!")
 
 
