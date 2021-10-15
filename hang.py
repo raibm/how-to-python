@@ -9,9 +9,14 @@ def play():
 
     while(not got_it and not hanged):
         guess = input("Try a letter")
+        guess = guess.strip()
+
+        print(secret_word.format_map(secret_word, "_"))
 
         for letter in secret_word:
+            index = 0
             if(guess.lower() == letter.lower()):
+                guess.whitespace()
                 print("Got it!")
 
 
