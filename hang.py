@@ -19,8 +19,6 @@ def play():
         for letter in secret_word:
             if (guess.lower() == letter.lower()):
                 right_letters[index] = letter
-                index = index + 1
-                continue
             index = index + 1
         print(right_letters)
 
