@@ -4,21 +4,25 @@ def play():
     print("*********************************")
 
     secret_word = "banana"
+    right_letters = ["_", "_", "_", "_", "_", "_"]
+
     got_it = False
     hanged = False
 
-    while(not got_it and not hanged):
+    print(right_letters)
+
+    while (not got_it and not hanged):
         guess = input("Try a letter")
         guess = guess.strip()
-
-        print(secret_word.format_map(secret_word, "_"))
+        index = 0
 
         for letter in secret_word:
-            index = 0
-            if(guess.lower() == letter.lower()):
-                guess.whitespace()
-                print("Got it!")
-
+            if (guess.lower() == letter.lower()):
+                right_letters[index] = letter
+                index = index + 1
+                continue
+            index = index + 1
+        print(right_letters)
 
 if (__name__ == "__main__"):
     play()
