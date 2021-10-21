@@ -8,3 +8,11 @@ print("Test, date format {:2d}/{:2d}".format(9,4))
 print("Test, date format {:02d}/{:02d}".format(9,4))
 print("Test, date format {:02d}/{:02d}".format(11,11))
 
+list = []
+list.append("pessoa 1")
+list.append("pessoa 2")
+
+print(type(list))
+
+tuple_converted = tuple(list)
+print(type(tuple_converted))
