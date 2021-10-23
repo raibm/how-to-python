@@ -17,12 +17,13 @@ def play():
         if (guess in secret_word and wrongs_letters < len(secret_word)):
             got_it = got_it_secret_word(secret_word, guess, right_letters)
             if (got_it):
-                show_won_game_message(secret_word)
+                show_won_game_message()
         else:
             wrongs_letters += 1
-            hanged = wrongs_letters == len(secret_word)
+            draw_hang(wrongs_letters)
+            hanged = wrongs_letters == 7
             if (hanged):
-                show_lost_game_message()
+                show_lost_game_message(secret_word)
 
 
 def show_initial_message():
@@ -31,12 +32,88 @@ def show_initial_message():
     print("*********************************")
 
 
-def show_lost_game_message():
-    print("You are hanged!")
+def show_lost_game_message(secret_word):
+    print("You got hanged!")
+    print("The secret word is {}".format(secret_word))
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
 
+def draw_hang(erros):
+    print("  _______     ")
+    print(" |/      |    ")
 
-def show_won_game_message(secret_word):
-    print("You got it! That's the word:", secret_word)
+    if(erros == 1):
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 2):
+        print(" |      (_)   ")
+        print(" |      \     ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 3):
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 4):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 5):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if(erros == 6):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if (erros == 7):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
+
+def show_won_game_message():
+    print("Congratulations, you win!")
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
 
 
 def set_secret_word():
