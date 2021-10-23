@@ -12,29 +12,31 @@ def play():
 
     while (not got_it and not hanged):
         print(right_letters)
-        guess = input("Try a letter")
-        guess = guess.strip().lower()  # The function 'strip()' may be used not only remove blank characters, but special characters too
-        index = 0
+        guess = get_inputed_guess()
 
         if (guess in secret_word and wrongs_letters < len(secret_word)):
-            for letter in secret_word:
-                if (guess == letter):
-                    right_letters[index] = letter
-                index = index + 1
-            got_it = "_" not in right_letters
+            got_it = got_it_secret_word(secret_word, guess, right_letters)
             if (got_it):
-                print("You got it! That's the word:", secret_word)
+                show_won_game_message(secret_word)
         else:
             wrongs_letters += 1
             hanged = wrongs_letters == len(secret_word)
             if (hanged):
-                print("You are hanged!")
+                show_lost_game_message()
 
 
 def show_initial_message():
     print("*********************************")
     print("Welcome to the gibble game!")
     print("*********************************")
+
+
+def show_lost_game_message():
+    print("You are hanged!")
+
+
+def show_won_game_message(secret_word):
+    print("You got it! That's the word:", secret_word)
 
 
 def set_secret_word():
@@ -46,6 +48,21 @@ def set_secret_word():
 
 def prepare_secret_word(word):
     return ["_" for letter in word]
+
+
+def get_inputed_guess():
+    guess = input("Try a letter")
+    return guess.strip().lower()  # The function 'strip()' may be used not only remove blank characters, but special characters too
+
+
+def got_it_secret_word(secret_word, guess, right_letters):
+    index = 0
+    for letter in secret_word:
+        if (guess == letter):
+            right_letters[index] = letter
+        index = index + 1
+
+    return "_" not in right_letters
 
 
 if (__name__ == "__main__"):
