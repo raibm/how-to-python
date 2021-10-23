@@ -1,10 +1,10 @@
-def play():
-    print("*********************************")
-    print("Welcome to the gibble game!")
-    print("*********************************")
+import random
 
-    secret_word = "banana".lower()
-    right_letters = ["_" for letter in secret_word]
+
+def play():
+    show_initial_message()
+    secret_word = set_secret_word()
+    right_letters = prepare_secret_word(secret_word)
 
     got_it = False
     hanged = False
@@ -13,7 +13,7 @@ def play():
     while (not got_it and not hanged):
         print(right_letters)
         guess = input("Try a letter")
-        guess = guess.strip().lower()
+        guess = guess.strip().lower()  # The function 'strip()' may be used not only remove blank characters, but special characters too
         index = 0
 
         if (guess in secret_word and wrongs_letters < len(secret_word)):
@@ -29,6 +29,23 @@ def play():
             hanged = wrongs_letters == len(secret_word)
             if (hanged):
                 print("You are hanged!")
+
+
+def show_initial_message():
+    print("*********************************")
+    print("Welcome to the gibble game!")
+    print("*********************************")
+
+
+def set_secret_word():
+    with open("words.txt", "r") as words:
+        secret_words = [line.strip() for line in words]
+    # words.close() is not more needed, because the key word 'with' do it
+    return secret_words[random.randrange(0, len(secret_words))].lower()
+
+
+def prepare_secret_word(word):
+    return ["_" for letter in word]
 
 
 if (__name__ == "__main__"):
